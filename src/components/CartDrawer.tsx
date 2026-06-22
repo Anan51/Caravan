@@ -5,38 +5,27 @@ import React, { useEffect, useMemo } from 'react';
 import { useCart } from '../context/CartContext';
 
 /* ------------------------------------------------------------------ */
-/*  Stripe placeholder                                                 */
+/*  Square Checkout placeholder                                        */
 /* ------------------------------------------------------------------ */
 
-const STRIPE_PK = 'pk_test_XXXXXXXXXXXXXXXXXXXXXXXX';
+// Note: In production, you would call your backend here to create a Square Checkout link
+// and then redirect the user to that URL.
 
-async function handleStripeCheckout(
+async function handleSquareCheckout(
   items: { name: string; price: number; quantity: number }[]
 ) {
   try {
-    // @ts-expect-error — Stripe.js loaded via script tag
-    const stripe = window.Stripe?.(STRIPE_PK);
-    if (!stripe) {
-      alert(
-        'Stripe.js is not loaded. In production, add the Stripe <script> tag.'
-      );
-      return;
-    }
-    await stripe.redirectToCheckout({
-      lineItems: items.map((i) => ({
-        price_data: {
-          currency: 'usd',
-          product_data: { name: i.name },
-          unit_amount: Math.round(i.price * 100),
-        },
-        quantity: i.quantity,
-      })),
-      mode: 'payment',
-      successUrl: `${window.location.origin}?success=true`,
-      cancelUrl: `${window.location.origin}?canceled=true`,
-    });
+    // Simulate a network request to your backend to generate a Square Checkout URL
+    console.log('Requesting Square Checkout URL for items:', items);
+    
+    alert(
+      'Demo Mode: Square Checkout API integration. In production, this would redirect to a secure Square-hosted payment page.'
+    );
+    
+    // Simulate a successful redirect and redirect to success page
+    window.location.href = `${window.location.origin}?success=true`;
   } catch (err) {
-    console.error('Stripe error:', err);
+    console.error('Square error:', err);
     alert('Checkout failed. Please try again.');
   }
 }
@@ -266,7 +255,7 @@ export default function CartDrawer() {
             {/* Checkout button */}
             <button
               onClick={() =>
-                handleStripeCheckout(
+                handleSquareCheckout(
                   items.map((i) => ({
                     name: i.name,
                     price: i.price,
@@ -284,10 +273,10 @@ export default function CartDrawer() {
                 active:scale-[0.98]
               "
             >
-              Checkout with Stripe
+              Checkout with Square
             </button>
             <p className="text-center text-[10px] text-[#1a1a2e]/30 tracking-wide">
-              Demo Mode — Stripe test key
+              Demo Mode — Square Sandbox
             </p>
           </div>
         )}

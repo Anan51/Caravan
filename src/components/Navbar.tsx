@@ -4,8 +4,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 
-const LOGO_URL =
-  'https://d2gqo3h0psesgi.cloudfront.net/auto/caravan-restaurant-seattle-tg7385vd-logo.png';
+const LOGO_URL = '/logo.png';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },

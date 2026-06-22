@@ -3,8 +3,7 @@
 
 import React from 'react';
 
-const LOGO_URL =
-  'https://d2gqo3h0psesgi.cloudfront.net/auto/caravan-restaurant-seattle-tg7385vd-logo.png';
+const LOGO_URL = '/logo.png';
 
 const QUICK_LINKS = [
   { label: 'Home', href: '#home' },

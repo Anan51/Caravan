@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-charcoal;
+  }
+
+  /* Hide scrollbar completely */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-display font-bold text-charcoal text-center mb-4;
+  }
+
+  .section-divider {
+    @apply w-24 h-1 bg-gradient-to-r from-gold-400 via-gold to-gold-400 mx-auto rounded-full;
+  }
+
+  .btn-primary {
+    @apply bg-gold hover:bg-gold-500 text-charcoal font-semibold py-3 px-8 rounded-lg
+           transition-all duration-300 transform hover:scale-105 hover:shadow-lg
+           hover:shadow-gold/20 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-ivory/30 hover:border-gold text-ivory hover:text-gold
+           font-semibold py-3 px-8 rounded-lg transition-all duration-300
+           hover:bg-gold/10;
+  }
+
+  .btn-outline {
+    @apply border-2 border-lapis hover:bg-lapis text-lapis hover:text-ivory
+           font-semibold py-2 px-6 rounded-lg transition-all duration-300;
+  }
+
+  .glassmorphism {
+    @apply bg-charcoal/70 backdrop-blur-xl border border-white/10;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-2xl hover:shadow-lapis/10
+           hover:-translate-y-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}

@@ -99,8 +99,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map((link) => {
                 const isActive =
-                  activeSection === link.href.replace('#', '') ||
-                  (link.label === 'Order' && activeSection === 'menu');
+                  activeSection === link.href.replace('#', '');
                 return (
                   <a
                     key={link.label}
